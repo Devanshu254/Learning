@@ -1,1 +1,24 @@
+Q1. Find the largest element in an array.
 
+int get_largest(int arr[], int n){
+  int res = arr[0];
+  for(int i=1;i<n;i++)
+    if(arr[i]>res)
+      res = arr[i];
+  return res;
+}
+
+Q2. Find the median in the vector.
+Input: N = 4
+arr[] = 56 67 30 79
+Output: 61
+
+Solution:
+int find_median(vector<int> v){     // calculation of size of array = sizeof(arr)/sizeof(arr[0]);
+  sort(v.begin(),v.end());
+  int n = v.size();
+  if(n%2==1)
+    return v[n/2];
+  else
+    return (v[n/2]+v[(n/2)-1])/2;
+}
