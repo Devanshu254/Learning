@@ -139,3 +139,23 @@ void leftRotate(int arr[], int k, int n)
 	   rotate(arr,arr+(k%n),arr+n); 
 	   
 	}
+
+Q9. Find the leaders.
+Input:
+n = 6
+A[] = {16,17,4,3,5,2}
+Output: 17 5 2
+Solution->
+vector<int> leaders(int a[], int n){
+        // Code here
+        vector<int> ans;
+        int bigger = INT_MIN;
+        for(int i=n-1;i>=0;i--){
+            if(a[i]>=bigger){
+                ans.push_back(a[i]);
+                bigger = a[i];
+            }
+        }
+        reverse(ans.begin(),ans.end());
+        return ans;
+    }
