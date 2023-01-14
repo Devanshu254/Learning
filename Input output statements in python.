@@ -65,5 +65,12 @@ print(x is z)
 print(y is z)
 
 
+# Membership operator -> in, not in
+# if we want to search a value in list then we can simply do it in 2 lines.
+
+x = [1,2,3]
+print(3 in x)
+print(3 not in x)
+
 
 
