@@ -1,0 +1,102 @@
+Date -> 10th april 2023.
+
+Q1. Detect the loop in the linked list using floyd's cycle detection method.
+
+Ans -> bool detectLoop(Node* head)
+    {
+        // your code here
+        if(head == NULL || head -> next == NULL){
+            return 0;
+        }
+        Node* slow = head;
+        Node* fast = head;
+        while(fast -> next && fast -> next -> next){
+            slow = slow -> next;
+            fast = fast -> next -> next;
+            if(slow == fast){
+                return 1;
+            }
+        }
+        return 0;
+    }
+    
+Q2. Nth node from end of linked list.
+    Input:
+    N = 2
+    LinkedList: 1->2->3->4->5->6->7->8->9
+    Output: 8
+    Input:
+    N = 5
+    LinkedList: 10->5->100->5
+    Output: -1
+    Answer -> 
+    
+    int getNthFromLast(Node *head, int n)
+{
+       // Your code here
+       Node* curr = head;
+       int count = 0;
+       while(curr != NULL){
+           curr = curr -> next;
+           count++;
+       }
+       if(n > count){
+           return -1;
+       }
+       count = count - n;
+       curr = head;
+       for(int i = 0; i < count; i++){
+           curr = curr -> next;
+       }
+       return (curr -> data);
+}
+
+Q3. Finding middle element in a linked list
+
+Answer -> int getMiddle(Node *head)
+    {
+        // Your code here
+        Node* curr = head;
+        int count = 0;
+        while(curr != NULL){
+            curr = curr->next;
+            count++;
+        }
+        int middle = 0;
+        if(count % 2 == 0){
+            middle = count/2;
+        }else{
+            middle = count/2;
+        }
+        curr = head;
+        for(int i=0;i<middle;i++){
+            curr = curr->next;
+        }
+        return (curr->data);
+    }
+    
+Q4. Reverse a linked list
+Input:
+LinkedList: 1->2->3->4->5->6
+Output: 6 5 4 3 2 1
+Explanation: After reversing the list, 
+elements are 6->5->4->3->2->1.
+Answer -> 
+
+struct Node* reverseList(struct Node *head)
+    {
+        // code here
+        // return head of reversed list
+        Node* prev = NULL;
+        Node* curr = head;
+        while(curr != NULL){
+            Node* next = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return prev;
+    }
+    
+   
+    
