@@ -207,3 +207,65 @@ Node *flatten(Node *root)
 	
 	return listHead;
 }
+
+Q8. Add 1 to a number represented as linked list.
+A number N is represented in Linked List such that each digit corresponds to a node in linked list. You need to add 1 to it.
+
+Example 1:
+
+Input:
+LinkedList: 4->5->6
+Output: 457 
+
+Solution -> 
+1. Reverse given linked list. For example, 1-> 9-> 9 -> 9 is converted to 9-> 9 -> 9 ->1.
+2. Start traversing linked list from leftmost node and add 1 to it.
+   If there is a carry, move to the next node. Keep moving to the next node while 
+   there is a carry.
+3. Reverse modified linked list and return head.
+
+class Solution
+{
+    public:
+    Node* reverse(Node* head){
+        Node* prev = NULL;
+        Node* current = head;
+        Node* next;
+        while(current != NULL){
+            next = current->next;
+            current->next = prev;
+            prev = current;
+            current = next;
+        }
+        return prev;
+    }
+    Node* addOneUntil(Node* head){
+        Node* res = head;
+        Node* temp;
+        int carry = 1, sum;
+        while(head != NULL){
+            sum = carry + head->data;
+            if(sum>=10){
+                carry = 1;
+            }else{
+                carry = 0;
+            }
+            sum = sum%10;
+            head->data = sum;
+            temp = head;
+            head = head->next;
+        }
+        if(carry>0){
+            temp->next = new Node(carry);
+        }
+        return res;
+    }
+    Node* addOne(Node *head) 
+    {
+        // Your Code here
+        // return head of list after adding one
+        head = reverse(head);
+        head = addOneUntil(head);
+        return reverse(head);
+    }
+};
