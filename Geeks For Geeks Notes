@@ -161,3 +161,49 @@ Node *flatten(Node *root)
    return root;
 }
     
+    Q7. Given a linked list, we need to cancel out all the resources whose sum is equal
+        to zero and return the remaining linked list.
+        
+        Input =  6 -6 8 4 -12 9 8 -8
+        Nodes which get cancelled out are:
+        6 -6
+        8 4 -12
+        8 -8
+        Output = 9
+        
+        Input = 4 6 -10 8 9 10 -19 10 -18 20 25.
+        Output = 20 25
+        
+    Solution ->  
+        
+        Node removeCancellableNodes(Node listHead)
+{
+	if (listHead == null) return null; // or listHead
+	Stack<Node> stack = new Stack<Node>();
+	Node node = listHead;  	
+	while(node != null)
+	{
+		if (node.value < 0)
+		{
+			int sum = node.value;
+                        while (!stack.isEmpty())
+			{
+				Node temp = stack.pop();
+				sum -= temp.value;
+				temp = null;
+				if (sum == 0)
+				{
+					node = stack.peek();
+					break;
+				}
+			}
+		}
+		else
+		{
+			stack.push(node);
+		}
+		node = node.next;
+	}
+	
+	return listHead;
+}
