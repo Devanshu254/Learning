@@ -303,3 +303,60 @@ struct node *reverse (struct node *head, int k)
         }
         return prev;
     }
+    
+    Q10. Check if Linked List is Palindrome.
+    Given a singly linked list of size N of integers. The task is to check if the given linked list is palindrome or not.
+
+Example 1:
+
+Input:
+N = 3
+value[] = {1,2,1}
+Output: 1
+Explanation: The given linked list is
+1 2 1 , which is a palindrome and
+Hence, the output is 1.
+
+Solution->
+
+class Solution{
+  public:
+    //Function to check whether the list is palindrome.
+    
+    bool isPalindrome(Node *head)
+    {
+        //Your code here
+        if(head == NULL || head->next == NULL){
+            return true;
+        }
+        Node* slow = head;
+        Node* fast = head;
+        while(fast->next != NULL && fast->next->next != NULL){
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        slow->next = reverseList(slow->next);
+        slow = slow->next;
+        while(slow != NULL){
+            if(slow->data != head->data){
+                return false;
+            }
+            slow = slow->next;
+            head = head->next;
+        }
+        return true;
+    }
+    Node* reverseList(Node* head){
+        Node* current = head;
+        Node* prev = NULL;
+        Node* next = NULL;
+        while(current != NULL){
+            next = current->next;
+            current->next = prev;
+            prev = current;
+            current = next;
+        }
+        return prev;
+    }
+};
+
