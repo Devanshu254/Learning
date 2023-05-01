@@ -412,3 +412,41 @@ vector <int> preorder(Node* root)
   }
   return result;
 }
+
+Q13. Post Order Traversal.
+Given a binary tree, find the Postorder Traversal of it.
+For Example, the postorder traversal of the following tree is:
+5 10 39 1
+
+        1
+     /     \
+   10     39
+  /
+5
+
+
+Example 1:
+
+Input:
+        19
+     /     \
+    10      8
+  /    \
+ 11    13
+Output: 11 13 10 8 19
+
+Solution ->
+
+vector <int> postOrder(Node* root)
+{
+  // Your code here
+  vector<int> result;
+  if(root != NULL){
+      vector<int> left = postOrder(root->left);
+      result.insert(result.end(), left.begin(), left.end());
+      vector<int> right = postOrder(root->right);
+      result.insert(result.end(), right.begin(), right.end());
+      result.push_back(root->data);
+  }
+  return result;
+}
