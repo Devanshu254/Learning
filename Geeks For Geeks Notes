@@ -360,3 +360,17 @@ class Solution{
     }
 };
 
+Q11. Inorder Traversal
+Solution - 
+vector<int> inOrder(Node* root) {
+        // Your code here
+        vector<int> result;
+    if (root != NULL) {
+        vector<int> left = inOrder(root->left);
+        result.insert(result.end(), left.begin(), left.end());
+        result.push_back(root->data);
+        vector<int> right = inOrder(root->right);
+        result.insert(result.end(), right.begin(), right.end());
+    }
+    return result;
+    }
