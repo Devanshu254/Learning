@@ -1,4 +1,4 @@
-Q1. Find the largest element in an array.
+Q1. Find the largest element in an 
 
 int get_largest(int arr[], int n){
   int res = arr[0];
