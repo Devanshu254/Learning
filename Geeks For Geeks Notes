@@ -711,8 +711,11 @@ vector<int> findSpiral(Node *root)
     return v;
 }
 
-Q21. Consider a directed graph whose vertices are numbered from 1 to n. There is an edge from a vertex i to a vertex j iff either j = i + 1 or j = 3 * i. The task is to find the minimum number of edges in a path in G from vertex 1 to vertex n.
+Date - 8th June 2023.
 
+Q21. Consider a directed graph whose vertices are numbered from 1 to n.
+There is an edge from a vertex i to a vertex j iff either j = i + 1 or j = 3 * i.
+The task is to find the minimum number of edges in a path in G from vertex 1 to vertex n.
 
 Example 1:
 
@@ -741,6 +744,34 @@ int minimumstep(int n){
 	return count;
 }
 
+Q22. Find the sum of dependencies in graph.
+Given a directed graph with V nodes and E edges. If there is an edge from u to v then u depends on v. Find out the sum of dependencies for every node. Duplicate edges should be counted as separate edges.
 
+Example 1:
+
+Input:
+V=4
+E=4
+Edges={ {0,2},{0,3},{1,3},{2,3} }
+Output:
+4
+Explanation:
+For the graph in diagram, A depends
+on C and D i.e. 2, B depends on D i.e.
+1, C depends on D i.e. 1
+and D depends on none.
+Hence answer -> 0 + 1 + 1 + 2 = 4
+Expected Time Complexity:O(V)
+Expected Auxillary Space:O(1)
+
+Solution->
+
+int SumOfDependencies(vector<int> adj[], int V){
+	int sum = 0;
+	for(int u=0; u<V; u++){
+		sum = sum + adj[u].size();
+	}
+	return sum;
+}
 
 
