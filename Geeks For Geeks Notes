@@ -774,4 +774,29 @@ int SumOfDependencies(vector<int> adj[], int V){
 	return sum;
 }
 
+Date: - 9th June 2023
+
+Q23. BFS of graph.
+Solution - 
+
+vector<int> bfsOfGraph(int V, vector<int> adj[]) {
+        // Code here
+        vector<int> v;
+        queue<int> q;
+        q.push(0);
+        vector<bool> vis(V,false);
+        vis[0] = true;
+        while(!q.empty()){
+            int u = q.front();
+            q.pop();
+            v.push_back(u);
+            for(auto it: adj[u]){
+                if(!vis[it]){
+                    vis[it] = true;
+                    q.push(it);
+                }
+            }
+        }
+        return v;
+    }
 
