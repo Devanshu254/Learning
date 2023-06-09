@@ -800,3 +800,23 @@ vector<int> bfsOfGraph(int V, vector<int> adj[]) {
         return v;
     }
 
+Q24. DFS of graph.
+Solution -> 
+
+vector<int> v;
+
+void solve(int s, vector<bool> &visited, vector<int> adj[]){
+	visited[s] = true;
+	v.push_back(s);
+	for(int u: adj[s]){
+		if(!visited[u]){
+			solve(u, visited, adj);	
+		}
+	}
+}
+
+vector<int> DfsOfGraph(int V, vector<int> adj[]){
+	vector<bool> visited(V,false);
+	solve(0,visited,adj);
+	return v;
+}
