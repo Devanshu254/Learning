@@ -145,5 +145,33 @@ bool isCycle(vector<int> adj[], int V){
 	return false;
 }
 
+Q6. Detect cycle in directed graph.
+Solution ->
+
+bool Dfs_Rec(vector<int>adj[], int s, vector<bool> &visited, vector<bool> &rec_st){
+	visited[s] = true;
+	rec_st[s] = true;
+	for(int u: adj[s]){
+		if(visited[u]==false && Dfs_Rec(adj, u, visited, rec_st)==true){
+			return true;
+		}else if(rec_st[u]==true){
+			return true;
+		}
+	}
+	rec_st[s] = false;
+	return false;
+}
+bool isCycle(int V, vector<int> adj[]){
+	vector<bool> visited(V,false);
+	vector<bool> rec_st(V,false);
+	for(int i=0;i<V;i++){
+		if(visited[i]==false){
+			if(Dfs_Rec(adj, i, visited, rec_st)==true){
+				return true;
+			}
+		}
+	}
+	return false;	
+}
 
 
