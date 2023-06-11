@@ -146,6 +146,8 @@ bool isCycle(vector<int> adj[], int V){
 }
 
 Q6. Detect cycle in directed graph.
+Expected Time Complexity: O(V + E)
+Expected Auxiliary Space: O(V)
 Solution ->
 
 bool Dfs_Rec(vector<int>adj[], int s, vector<bool> &visited, vector<bool> &rec_st){
