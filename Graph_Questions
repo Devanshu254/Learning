@@ -208,7 +208,71 @@ vector<int> topoSort(int V, vector<int> adj[]){
 	return ans;
 }
 
+Q8. Find the number of islands-> https://practice.geeksforgeeks.org/problems/find-the-number-of-islands/
+1?page=1&difficulty[]=1&category[]=Graph&sortBy=submissions
 
+Problem statement.
+Given a grid of size n*m (n is the number of rows and m is the number of columns in the grid)
+consisting of '0's (Water) and '1's(Land). Find the number of islands.
+Note: An island is either surrounded by water or boundary of grid and is formed
+by connecting adjacent lands horizontally or vertically or diagonally i.e., in all 8 directions.
+Example 1:
+Input:
+grid = {{0,1},{1,0},{1,1},{1,0}}
+Output:
+1
+Explanation:
+The grid is-
+0 1
+1 0
+1 1
+1 0
+All lands are connected.
+
+Example 2: 
+Input:
+grid = {{0,1,1,1,0,0,0},{0,0,1,1,0,1,0}}
+Output:
+2
+Expanation:
+The grid is-
+0 1 1 1 0 0 0
+0 0 1 1 0 1 0 
+There are two islands :- one is colored in blue 
+and other in orange.
+
+Solution -> DFS based solution:
+
+void DFS(vector<vector<char>>&grid, int i, int j, int ROW, int COL){
+	if(i<0 || j<0 || i>(ROW-1) || j>(COL-1) || grid[i][j] != '1'){
+		return;
+	}
+	if(grid[i][j]=='1'){
+		grid[i][j] = 0;
+		DFS(grid,i+1,j,ROW,COL);
+		DFS(grid,i,j+1,ROW,COL);
+		DFS(grid,i-1,j,ROW,COL);
+		DFS(grid,i,j-1,ROW,COL);
+		DFS(grid,i+1,j+1,ROW,COL);
+		DFS(grid,i-1,j-1,ROW,COL);
+		DFS(grid,i-1,j+1,ROW,COL);
+		DFS(grid,i+1,j-1,ROW,COL);
+	}
+}
+int numIslands(vector<vector<char>>&grid){
+	int ROW = grid.size();
+	int COL = grid[0].size();
+	int count = 0;
+	for(int i=0;i<ROW;i++){
+		for(int j=0;j<COL;j++){
+			if(grid[i][j]=='1'){
+				count++;
+				DFS(grid, i, j, ROW, COL);
+			}
+		}
+	}
+	return count;
+}
 
 
 
