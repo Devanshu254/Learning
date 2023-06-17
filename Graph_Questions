@@ -326,7 +326,7 @@ int minSwaps(vector<int>&nums)
 	    return ans;
 	}
 
-Q10. Bipartite graph.
+Q10. Detect whether a graph is Bipartite graph or not.
 
 A bipartite graph is a mathematical concept in graph theory that represents a graph
 whose vertices can be divided into two disjoint sets such that every edge in the graph
@@ -334,3 +334,6 @@ connects a vertex from one set to a vertex in the other set. In other words, the
 edges that connect vertices within the same set.
 Formally, a graph G = (V, E) is bipartite if its vertex set V can be partitioned into two sets,
 V1 and V2, such that every edge in E connects a vertex from V1 to a vertex in V2.
+
+Expected Time Complexity: O(V + E)
+Expected Space Complexity: O(V)
