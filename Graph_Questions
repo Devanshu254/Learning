@@ -396,3 +396,5 @@ vector<int> dijkstra(int V, vector<vector<int>> adj[], int S)
     return dis;  // Corrected variable name here
 }
 
+Q12. Strongly connected components(Kosaraju's algorithm).
+
