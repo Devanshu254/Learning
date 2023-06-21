@@ -493,3 +493,7 @@ Answer - Since the graph of N nodes, in worst case, you will take N-1 edges to r
 	 thereby we iteratee for N-1th iteration.
 	 Try drawing graph which takes more than N-1 edges for any path, it is not possible.
 
+Q14. Number of provinces in a graph.
+Given an undirected graph with V vertices. We say two vertices u and v belongs to a single provience if there is
+a path from u to v or v to u.
+Problem statement -> https://practice.geeksforgeeks.org/problems/number-of-provinces/1
