@@ -488,4 +488,8 @@ vector<int> bellman_ford(int V, vector<vector<int>>& edges, int S){
 	}
 	return dis;
 }
+// Q. Why we are only iterating to only N-1th iteration.
+Answer - Since the graph of N nodes, in worst case, you will take N-1 edges to reach from first to last,
+	 thereby we iteratee for N-1th iteration.
+	 Try drawing graph which takes more than N-1 edges for any path, it is not possible.
 
