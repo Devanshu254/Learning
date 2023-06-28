@@ -180,3 +180,28 @@ output:- absoulte difference of even - odd.
 5+7+1 = 13 (even)
 6+8+2 = 16 (odd)
 
+Solution -> 
+
+#include<bits/stdc++.h>
+using namespace std;
+int Absolute_odd_even_difference(int n){
+    int sumEven = 0;
+    int sumOdd = 0;
+    string numberString = to_string(n);
+    for(char digitChar: numberString){
+        int digit = digitChar - '0';
+        if(digit%2 == 0){
+            sumEven = sumEven + digit;
+        }else{
+            sumOdd = sumOdd + digit;
+        }
+    }
+    int absoluteDifference = abs(sumEven - sumOdd);
+    return absoluteDifference;
+}
+int main(){
+    int n = 567812;
+    cout<<Absolute_odd_even_difference(n);
+    return 0;
+}
+
