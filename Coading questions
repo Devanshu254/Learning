@@ -174,3 +174,9 @@ int maxProfit(vector<int>& prices) {
         }
         return profit;
     }
+
+Q10. int n = 567812
+output:- absoulte difference of even - odd.
+5+7+1 = 13 (even)
+6+8+2 = 16 (odd)
+
