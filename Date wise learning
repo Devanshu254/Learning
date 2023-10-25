@@ -16,3 +16,36 @@ class Solution{
         return s.size();
     }
 };
+
+Q2. Check if two arrays are equal or not.
+Two arrays are said to be equal if:
+both of them contain the same set of elements, 
+arrangements (or permutations) of elements might/might not be same.
+If there are repetitions, then counts of repeated elements must also be the
+same for two arrays to be equal.
+
+Solution -> 
+
+class Solution{
+    public:
+
+    //Function to check if two arrays are equal or not.
+    bool check(vector<ll> A, vector<ll> B, int N) {
+        //code here
+        if(A.size() != B.size()) return false;
+        unordered_map<int, int> mpp;
+        for(int i=0;i<A.size();i++) {
+            mpp[A[i]]++;
+        }
+        for(int i=0;i<B.size();i++) {
+            if(mpp.find(B[i]) == mpp.end()) {
+                return false;
+            }
+            if(mpp[B[i]] == 0) {
+                return false;
+            }
+            mpp[B[i]]--;
+        }
+        return true;
+    }
+};
