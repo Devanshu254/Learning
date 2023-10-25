@@ -49,3 +49,20 @@ class Solution{
         return true;
     }
 };
+
+Q3. Find the first element which is repeated k times.
+Solution -> 
+
+int firstElementKTime(int a[], int n, int k)
+    {
+        unordered_map<int, int> mpp;
+        for(int i=0;i<n;i++) {
+            mpp[a[i]]++;
+        }
+        for(int i=0;i<n;i++) {
+            if(mpp[a[i]] == k) {
+                return a[i];
+            }
+        }
+        return -1;
+    }
