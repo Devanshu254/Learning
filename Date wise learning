@@ -66,3 +66,42 @@ int firstElementKTime(int a[], int n, int k)
         }
         return -1;
     }
+
+
+Q4. Find the uncommon characters.
+Given two strings A and B consisting of lowercase english characters. Find the characters that are not common in the two strings. 
+
+Note :- Return the string in sorted order.
+
+Example 1:
+
+Input:
+A = geeksforgeeks
+B = geeksquiz
+Output: fioqruz
+Explanation: 
+The characters 'f', 'i', 'o', 'q', 'r', 'u','z' 
+are either present in A or B, but not in both.
+Solution -> 
+
+string UncommonChars(string A, string B)
+        {
+            unordered_set<char> setA(A.begin(), A.end());
+            unordered_set<char> setB(B.begin(), B.end());
+            string result = "";
+            for(char c: setA) {
+                if(setB.find(c) == setB.end()) {
+                    result += c;
+                }
+            }
+            for(char c: setB) {
+                if(setA.find(c) == setA.end()) {
+                    result += c;
+                }
+            }
+            if(result.empty()) {
+                return "-1";
+            }
+            sort(result.begin(), result.end());
+            return result;
+        }
