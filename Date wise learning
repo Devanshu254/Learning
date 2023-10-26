@@ -119,3 +119,28 @@ int getOddOccurrence(int arr[], int n) {
         }
         return result;
     }
+
+Date : 26/oct/2023.
+
+Q1. Anagram palindrome.
+Given a string S, Check if characters of the given string can be rearranged to form a palindrome.
+Note: You have to return 1 if it is possible to convert the given string into palindrome else return 0. 
+
+Example 1:
+
+Input:
+S = "geeksogeeks"
+Output: Yes
+Explanation: The string can be converted
+into a palindrome: geeksoskeeg
+Solution -> 
+
+int odd = 0;
+    for(int i=0;i<NO_OF_CHAR;i++) {
+        if(count[i] & 1) {
+            odd++;
+        }
+        if(odd > 1) {
+            return false;
+        }
+    }
