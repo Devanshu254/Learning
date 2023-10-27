@@ -304,3 +304,40 @@ int countPairs(int arr1[], int arr2[],  int m, int n, int x)
         }
         return count;
     } 
+
+Q12. Unique Numbers
+In the given range [L, R], print all numbers having unique digits. e.g. In range 10 to 20 should print all numbers except 11.
+
+Example 1:
+
+Input:
+L = 10
+R = 20
+
+Output:
+10 12 13 14 15 16 17 18 19 20
+
+Explanation:
+The number 11 has two 1 therefore
+11 is not a unique number.
+
+Solution -> 
+bool areUniqueDigits(int n) {
+        vector<bool> exists(10, false);
+        while(n > 0) {
+            if(exists[n%10]) return false;
+            exists[n%10] = true;
+            n = n / 10;
+        }
+        return true;
+    }
+    vector<int> uniqueNumbers(int L,int R)
+    {
+        vector<int> v;
+        for(int i=L;i<=R;i++) {
+            if(areUniqueDigits(i)) {
+                v.push_back(i);
+            }
+        }
+        return v;
+    }
