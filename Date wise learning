@@ -200,3 +200,34 @@ bool isIsogram(string s)
         }
         return 1;
     }
+
+Q27. Count the characters
+Given a string S. Count the characters that have ‘N’ number of occurrences. If a character appears consecutively it is counted as 1 occurrence.
+
+Example 1:
+
+Input:
+S = "abc", N = 1
+Output: 3
+Explanation: 'a', 'b' and 'c' all have 
+1 occurrence.
+
+Solution -> 
+int getCount (string S, int N)
+        {
+            unordered_map<char, int> mpp;
+            char Last = '\0'; 
+            for(int i=0;i<S.size();i++) {
+                if(S[i] != Last) {
+                    mpp[S[i]]++;
+                    Last = S[i];
+                }
+            }
+            int count = 0;
+            for(auto it = mpp.begin(); it != mpp.end(); it++) {
+                if(it->second == N) {
+                    count++;
+                }
+            }
+            return count;
+        }
