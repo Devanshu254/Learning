@@ -1,5 +1,6 @@
 Date: 25th-oct-2023.
 Topic: Hashing.
+
 Q1. Union of two arrays.
 Solution -> 
 class Solution{
@@ -122,7 +123,7 @@ int getOddOccurrence(int arr[], int n) {
 
 Date : 26/oct/2023.
 
-Q1. Anagram palindrome.
+Q6. Anagram palindrome.
 Given a string S, Check if characters of the given string can be rearranged to form a palindrome.
 Note: You have to return 1 if it is possible to convert the given string into palindrome else return 0. 
 
@@ -145,7 +146,7 @@ int odd = 0;
         }
     }
 
-Q2. Given a string consisting of lowercase english alphabets. Find the repeated character present first in the string.
+Q7. Given a string consisting of lowercase english alphabets. Find the repeated character present first in the string.
 
 Example 1:
 
@@ -173,7 +174,7 @@ char firstRep (string s)
         
     }
 
-Q3. Given a string S of lowercase alphabets, check if it is isogram or not. 
+Q8. Given a string S of lowercase alphabets, check if it is isogram or not. 
 An Isogram is a string in which no letter occurs more than once.
 
 Example 1:
@@ -203,7 +204,7 @@ bool isIsogram(string s)
 
 Date: 27 october 2023
 
-Q1. Count the characters
+Q9. Count the characters
 Given a string S. Count the characters that have ‘N’ number of occurrences. If a character appears consecutively it is counted as 1 occurrence.
 
 Example 1:
@@ -234,7 +235,7 @@ int getCount (string S, int N)
             return count;
         }
 
-Q2. Sort the string in descending order
+Q10. Sort the string in descending order
 Given a string str containing only lower case alphabets, the task is to sort it in lexicographically-descending order.
 
 Example 1:
