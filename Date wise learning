@@ -201,7 +201,9 @@ bool isIsogram(string s)
         return 1;
     }
 
-Q27. Count the characters
+Date: 27 october 2023
+
+Q1. Count the characters
 Given a string S. Count the characters that have ‘N’ number of occurrences. If a character appears consecutively it is counted as 1 occurrence.
 
 Example 1:
@@ -231,3 +233,43 @@ int getCount (string S, int N)
             }
             return count;
         }
+
+Q2. Sort the string in descending order
+Given a string str containing only lower case alphabets, the task is to sort it in lexicographically-descending order.
+
+Example 1:
+
+Input: str = "geeks"
+Output: "skgee"
+Explanation: It's the lexicographically-
+descending order.
+Solution -> 
+one simple solution is: 
+string ReverseSort(string str){
+    //complete the function here
+    sort(str.begin(), str.end(), greater<char>());
+    return str;
+}
+
+Another solution is:
+An efficient approach will be to observe first that there can be a total of 26 unique characters only.
+So, we can store the count of occurrences of all the characters from ‘a’ to ‘z’ in a hashed array.
+The first index of the hashed array will represent character ‘a’, second will represent ‘b’ and so on.
+Finally, we will simply traverse the hashed array and print the characters from ‘z’ to ‘a’ the number
+of times they occurred in input string.
+
+const int MAX_CHAR = 26;
+string ReverseSort(string str){
+    //complete the function here
+    int charCount[MAX_CHAR] = {0};
+    for(int i=0;i<str.length();i++) {
+        charCount[str[i]-'a']++;
+    }
+    string result = "";
+    for(int i=MAX_CHAR-1;i>=0;i--) {
+        for(int j=0;j<charCount[i];j++) {
+            result += (char)('a'+i);
+        }
+    }
+    return result;
+}
